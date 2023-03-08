@@ -1,0 +1,343 @@
+<html>
+
+<head>
+    <title>FalaAI</title>
+</head>
+
+<body>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="chat.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-12">
+                <div class="card chat-app">
+                    <div id="plist" class="people-list">
+                        <div class="input-group" style="display: none">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fa fa-search"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Buscar">
+                        </div>
+                        <ul class="list-unstyled chat-list mt-2 mb-0">
+                            <li class="clearfix active">
+                                <img src="https://s2.glbimg.com/BmX3tM8HgOpDmBpVzdJDkxA1Jrk=/0x0:400x400/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2018/Z/p/LvrSncTxGodAiaEbwLgQ/pegabot.jpg"
+                                    alt="avatar">
+                                <div class="about">
+                                    <div class="name">FaleAI - Leila</div>
+                                    <div class="status"> <i class="fa fa-circle online"></i> online </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="chat">
+                        <div class="chat-header clearfix">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <a href="javascript:void(0);" data-toggle="modal" data-target="#view_info">
+                                        <img src="https://s2.glbimg.com/BmX3tM8HgOpDmBpVzdJDkxA1Jrk=/0x0:400x400/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_59edd422c0c84a879bd37670ae4f538a/internal_photos/bs/2018/Z/p/LvrSncTxGodAiaEbwLgQ/pegabot.jpg"
+                                            alt="avatar">
+                                    </a>
+                                    <div class="chat-about">
+                                        <h6 class="m-b-0">FaleAI - Leila</h6>
+                                        <small>Última Visualização: 2h atrás</small>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 hidden-sm text-right">
+                                    <input class="form-check-input" type="checkbox" value="" id="translationResult">
+                                    <label class="form-check-label" for="translationResult">
+                                        Trazuir ?
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat-history">
+                            <ul class="m-b-0">
+                                <li class="clearfix">
+                                    <div class="message-data text-right">
+                                        <img src="https://media.licdn.com/dms/image/C4E03AQHoLuOHzw1ejw/profile-displayphoto-shrink_800_800/0/1660315506228?e=1681948800&v=beta&t=9km4FMNweopihkuxTSgl4eI2JLdWNtQd99RM02Z6v38"
+                                            alt="avatar">
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="chat-message clearfix">
+                            <div class="input-group mb-0">
+                                <div class="form-inline">
+                                    <button class="btn btn-form" id="btnPlay"><i class="fa fa-microphone"></i></button>
+                                    &nbsp;
+
+                                </div>
+                                <select class="form-control" id="languageTargetOptions">
+                                    <option value="ar-EG-SalmaNeural">Arabic - EG</option>
+                                    <option value="ca-ES-AlbaNeural">Catalan - ES</option>
+                                    <option value="da-DK-JeppeNeural">Danish - DK</option>
+                                    <option value="de-DE-BerndNeural">German - DE</option>
+                                    <option value="en-AU-NatashaNeural">English - AU</option>
+                                    <option value="en-CA-ClaraNeural">English - CA</option>
+                                    <option value="en-GB-NoahNeural">English - GB</option>
+                                    <option value="en-IN-NeerjaNeural">English - IN</option>
+                                    <option value="en-US-AmberNeural" selected="selected">English - US</option>
+                                    <option value="es-ES-ElviraNeural">Spanish - ES</option>
+                                    <option value="es-MX-LibertoNeural">Spanish - MX</option>
+                                    <option value="fi-FI-HarriNeural">Finnish - FI</option>
+                                    <option value="fr-CA-JeanNeural">French - CA</option>
+                                    <option value="fr-FR-ClaudeNeural">French - FR</option>
+                                    <option value="hi-IN-MadhurNeural">Hindi - IN</option>
+                                    <option value="it-IT-CataldoNeural">Italian - IT</option>
+                                    <option value="ja-JP-KeitaNeural">Japanese - JP</option>
+                                    <option value="ko-KR-InJoonNeural">Korean - KR</option>
+                                    <option value="nb-NO-FinnNeural">Norwegian - NO</option>
+                                    <option value="nl-NL-ColetteNeural">Dutch - NL</option>
+                                    <option value="pl-PL-ZofiaNeural">Polish - PL</option>
+                                    <option value="pt-BR-BrendaNeural">Portuguese - BR</option>
+                                    <option value="pt-PT-RaquelNeural">Portuguese - PT</option>
+                                    <option value="ru-RU-DmitryNeural">Russian - RU</option>
+                                    <option value="sv-SE-HilleviNeural">Swedish - SE</option>
+                                    <option value="zh-CN-XiaohanNeural">Chinese - CN</option>
+                                    <option value="zh-HK-HiuGaaiNeural">Chinese - HK</option>
+                                    <option value="zh-TW-YunJheNeural">Chinese - TW</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://aka.ms/csspeech/jsbrowserpackageraw"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        const originalLang = "pt-BR"
+        const region = "eastus";
+        const subscriptionKey = "{KEY-COGNITIVE-SERVICES}";
+        const startRecordingButton = document.getElementById("btnPlay");
+        const urlToken = "https://cogvssummit01.cognitiveservices.azure.com/sts/v1.0/issueToken";
+
+        const urlMediaSender = "https://media.licdn.com/dms/image/C4E03AQHoLuOHzw1ejw/profile-displayphoto-shrink_800_800/0/1660315506228?e=1681948800&amp;v=beta&amp;t=9km4FMNweopihkuxTSgl4eI2JLdWNtQd99RM02Z6v38";
+        const languageTargetOptions = document.getElementById("languageTargetOptions");
+        const translationResult = document.getElementById("translationResult");
+        var SpeechSDK;
+        var synthesizer;
+        var authorizationToken = null;
+        var authorizationTokenSpeech = null;
+        const urlGPT = "https://openaihsouza.openai.azure.com/openai/deployments/chatgpt/completions?api-version=2022-12-01";
+        const keyOpenAI = "{KEY-AZURE-OPENAI}";
+
+        startRecordingButton.addEventListener("click", async () => {
+            (!translationResult.checked) ? getRecongnizeText() : getTranslation();
+        });
+
+        //Inclusão de campos na tela
+        function addTextOnScreen(text, isquestion = true) {
+            var line;
+            debugger;
+            if (isquestion) {
+                line = `<li class="clearfix">
+                    <div class="message-data text-right">
+                        <span class="message-data-time"> ${getDate()}</span>
+                    </div>
+                    <div class="message other-message float-right"> ${text.replaceAll('\\n', '').replaceAll('"', '')} </div></li>`;
+
+            } else {
+
+                line = `<li class="clearfix">
+                    <div class="message-data">
+                        <span class="message-data-time"> ${getDate()}</span>
+                    </div>
+                    <div class="message my-message"> ${text.replaceAll('\\n', '').replaceAll('"', '')} </div></li>`;
+            }
+
+            $(".chat-history > .m-b-0").append(line);
+
+        }
+
+        //Config de Idioma
+        function getSpeechConfig(sdkConfigType) {
+            let speechConfig;
+
+             //Caso tenha problemas na requisição do token, gerar via subscription key
+            speechConfig = sdkConfigType.fromSubscription(subscriptionKey, region);
+            
+            // Definir o formato de saída do resultado Detalhado de como será solicitado.
+            // resultado JSON inclui alternativas, pontuações, palavras lexicais e outros informações.
+            if (sdkConfigType != SpeechSDK.SpeechConfig) {
+                window.console.log('Resultados detalhados não são suportados para este cenário.\r\n');
+            } else {
+                speechConfig.outputFormat = SpeechSDK.OutputFormat.Detailed;
+            }
+
+            // Define o(s) idioma(s) para o qual a fala deve ser traduzida.
+            // Vários idiomas podem ser especificados para tradução porém vamos utilizar apenas 1.
+            if (sdkConfigType == SpeechSDK.SpeechTranslationConfig) {
+                speechConfig.addTargetLanguage(languageTargetOptions.value.substr(0, 5));
+            }
+
+            speechConfig.speechRecognitionLanguage = originalLang;
+            return speechConfig;
+        }
+
+        //Serviço de Tradução
+        function getTranslation() {
+
+            var speechConfig = getSpeechConfig(SpeechSDK.SpeechTranslationConfig);
+            if (!speechConfig) return;
+            var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+            reco = new SpeechSDK.TranslationRecognizer(speechConfig, audioConfig);
+            reco.recognizeOnceAsync(
+                function (result) {
+                    debugger;
+                    let languageTarget = languageTargetOptions.value.substr(0, 2);
+                    let translation = result.translations.get(languageTarget);
+                    addTextOnScreen(translation);
+                    reco.close();
+                },
+                function (err) {
+                    window.console.log(err);
+                    reco.close();
+               });
+        }
+        
+        //Reconhecimento de Texto
+        async function getRecongnizeText() {
+
+            var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, region);
+            speechConfig.speechRecognitionLanguage = originalLang;
+            var audioConfig = SpeechSDK.AudioConfig.fromDefaultMicrophoneInput();
+            var recognizer = new SpeechSDK.SpeechRecognizer(speechConfig, audioConfig);
+            recognizer.recognizeOnceAsync(
+                function (result) {
+                    var textResult = result.text.replaceAll('\n', '');
+                    addTextOnScreen(textResult);
+                    if(textResult.includes("imagem") || textResult.includes("Imagem")){
+                        generateImage(textResult);
+                    }else{
+                        askToOpenAI(textResult);
+                    }
+                    recognizer.close();
+                    recognizer = undefined;
+
+                },
+                function (err) {
+                    console.trace("err - " + err);
+                    recognizer.close();
+                    recognizer = undefined;
+                });
+        }
+
+
+        
+
+        function askToOpenAI(question) {
+
+            var data = JSON.stringify({
+                "prompt": question,
+                "max_tokens": 4000,
+                "temperature": 0.7,
+                "frequency_penalty": 0,
+                "presence_penalty": 0,
+                "top_p": 1,
+                "best_of": 1,
+                "stop": null
+            });
+
+            var config = {
+                method: 'post',
+                url: urlGPT,
+                headers: {
+                    'Content-Type': 'application/json',
+                    'api-key': keyOpenAI
+                },
+                data: data
+            };
+
+            axios(config).then(function (response) {
+                var text = JSON.stringify(response.data.choices[0].text);
+                addTextOnScreen(text, false);
+                textToSpeech(text.replaceAll('\\n', '').replaceAll('"', ''));
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+        }
+
+        function textToSpeech(textToSpeech) {
+            var speechConfig = SpeechSDK.SpeechConfig.fromSubscription(subscriptionKey, region);
+            speechConfig.speechSynthesisLanguage = "pt-BR";
+            speechConfig.speechSynthesisVoiceName = "pt-BR-LeilaNeural";
+            speechConfig.speechSynthesisOutputFormat = SpeechSDK.SpeechSynthesisOutputFormat.Audio24Khz16KBitRateMonoMp3;
+            var synthesizer = new SpeechSDK.SpeechSynthesizer(speechConfig);
+            synthesizer.speakTextAsync(
+                textToSpeech,
+                function (result) {
+                    if (result.reason === SpeechSDK.ResultReason.Canceled) {
+                        console.log("Error: " + result.errorDetails);
+                    }
+                    window.console.log(result);
+                    synthesizer.close();
+                    synthesizer = undefined;
+                },
+                function (err) {
+                    window.console.log(err);
+                    synthesizer.close();
+                    synthesizer = undefined;
+                });
+        }
+
+        function generateImage(text){
+            var settings = {
+                "url": "https://api.openai.com/v1/images/generations",
+                "method": "POST",
+                "timeout": 0,
+                "headers": {
+                  "Content-Type": "application/json",
+                  "Authorization": "Bearer {KEY-OPENAI-DALL-E}"
+                },
+                "data": JSON.stringify({
+                  "prompt": text,
+                  "n": 2,
+                  "size": "512x512"
+                }),
+              };
+              
+              $.ajax(settings).done(function (response) {
+                
+                for (var i = 0; i < response.data.length; i++) {
+                    var img = response.data[i].url;
+                    var line = `<li class="clearfix">
+                        <div class="message-data">
+                            <span class="message-data-time"> ${getDate()}</span>
+                        </div>
+                        <div class="message my-message"><img src='${img}' width="250" height="250"></img> </div></li>`;
+                
+                        $(".chat-history > .m-b-0").append(line);
+                }
+               
+              });
+        }
+
+        //Metodo gerado pela OpenAI
+        function getDate() {
+            const data = new Date();
+            const hora = ('0' + data.getHours()).slice(-2) + ':' + ('0' + data.getMinutes()).slice(-2);
+            const dia = data.toLocaleDateString('pt-BR', { weekday: 'long' });
+            const dataFormatada = hora + ', ' + dia;
+            return dataFormatada;
+        }
+    
+
+    </script>
+</body>
+
+</html>
